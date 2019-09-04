@@ -17,6 +17,7 @@ public class JumperController : MonoBehaviour
     {
         transform.position = positions[currentPosition].position;
         lastMoveTime = Time.time;
+        StartCoroutine(Move());
     }
 
     IEnumerator Move()
