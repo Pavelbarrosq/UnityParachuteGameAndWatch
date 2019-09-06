@@ -11,6 +11,10 @@ public class JumperController : MonoBehaviour
     [SerializeField]
     private List<Transform> rightPositions = new List<Transform>();
 
+    public delegate void Jumper();
+    public static event Jumper OnCrash;
+    public static event Jumper OnSave;
+
     public int currentPosition = 0;
 
     private List<Transform> pos;
@@ -18,6 +22,8 @@ public class JumperController : MonoBehaviour
     float lastMoveTime;
     float moveDelay = 1.0f;
     int rand;
+    float deathDelay = 0.5f;
+    bool isDead = false;
 
     private void Start()
     {
@@ -29,10 +35,24 @@ public class JumperController : MonoBehaviour
 
     IEnumerator Move()
     {
-        while (true)
+        while (!isDead)
         {
             yield return new WaitForSeconds(moveDelay);
             RandomPaths();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name.Equals("Rescuer"))
+        {
+            Debug.Log("Rescued");
+            OnSave();
+        } else if (collision.gameObject.name.Equals("Sea"))
+        {
+            StartCoroutine(Crashed());
+            Debug.Log("Dead");
+            OnCrash();
         }
     }
 
@@ -68,5 +88,21 @@ public class JumperController : MonoBehaviour
         }
     }
 
+    IEnumerator Crashed()
+    {
+        isDead = true;
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
+        
+        yield return new WaitForSeconds(deathDelay);
+        DestroyJumper();
+        
+    }
+
+    void DestroyJumper()
+    {
+        GameObject parent = transform.parent.gameObject;
+        Destroy(parent);
+    }
 
 }
