@@ -16,6 +16,9 @@ public class JumperSpawner : MonoBehaviour
 
 
     public float randomSpawnDelay;
+    private bool stopJumpers = false;
+
+    private List<GameObject> jumpers = new List<GameObject>();
 
     private void Start()
     {
@@ -28,7 +31,7 @@ public class JumperSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > lastSpawnTime + randomSpawnDelay)
+        if (!stopJumpers && Time.time > lastSpawnTime + randomSpawnDelay)
         {
             SpawnJumper();
         }
@@ -39,6 +42,13 @@ public class JumperSpawner : MonoBehaviour
     {
         lastSpawnTime = Time.time;
         randomSpawnDelay = Random.Range(spawnDelay - deltaRandomSpawn, spawnDelay + deltaRandomSpawn);
-        Instantiate(jumperPrefab);
+        GameObject jumper = Instantiate(jumperPrefab);
+
+        jumpers.Add(jumper);
+
+        JumperController jumperController = jumper.GetComponentInChildren<JumperController>(); // Hjälp!
+
+        jumperController.jumperSpawner = this;
+
     }
 }

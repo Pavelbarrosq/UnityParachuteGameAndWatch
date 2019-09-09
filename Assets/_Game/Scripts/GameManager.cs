@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     
     public int startingLives = 3;
     int point = 0;
+    public GameObject gameOverSign;
+    
 
     private void OnEnable()
     {
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        gameOverSign.SetActive(false);
         livesController.StartingLives(startingLives);
     }
 
@@ -40,12 +44,18 @@ public class GameManager : MonoBehaviour
         if(!livesController.RemoveLife())
         {
             Debug.Log("Game Is Over");
+            gameOverSign.SetActive(true);
         }
     }
 
     private void updateScoreLabel()
     {
         scoreText.text = point.ToString();
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Main");
     }
 
 }

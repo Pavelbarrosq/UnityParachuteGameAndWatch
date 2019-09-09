@@ -19,11 +19,15 @@ public class JumperController : MonoBehaviour
 
     private List<Transform> pos;
 
+    [HideInInspector]
+    public JumperSpawner jumperSpawner;
+
     float lastMoveTime;
     float moveDelay = 1.0f;
     int rand;
     float deathDelay = 0.5f;
     bool isDead = false;
+    bool saved = false;
 
     private void Start()
     {
@@ -46,10 +50,12 @@ public class JumperController : MonoBehaviour
     {
         if (collision.gameObject.name.Equals("Rescuer"))
         {
+            StartCoroutine(Crashed());
             Debug.Log("Rescued");
             OnSave();
         } else if (collision.gameObject.name.Equals("Sea"))
         {
+            isDead = true;
             StartCoroutine(Crashed());
             Debug.Log("Dead");
             OnCrash();
@@ -90,12 +96,21 @@ public class JumperController : MonoBehaviour
 
     IEnumerator Crashed()
     {
-        isDead = true;
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.color = Color.red;
+        if (isDead)
+        {
+            ChangeJumperColor(Color.red);
+
+            yield return new WaitForSeconds(deathDelay);
+            DestroyJumper();
+        }
+        else
+        {
+            ChangeJumperColor(Color.green);
+
+            yield return new WaitForSeconds(deathDelay);
+            DestroyJumper();
+        }
         
-        yield return new WaitForSeconds(deathDelay);
-        DestroyJumper();
         
     }
 
@@ -103,6 +118,12 @@ public class JumperController : MonoBehaviour
     {
         GameObject parent = transform.parent.gameObject;
         Destroy(parent);
+    }
+
+    public void ChangeJumperColor(Color color)
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = color;
     }
 
 }
