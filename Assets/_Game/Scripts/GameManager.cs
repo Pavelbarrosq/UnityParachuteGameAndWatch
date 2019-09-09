@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int startingLives = 3;
     int point = 0;
     public GameObject gameOverSign;
+
+    JumperSpawner jumperSpawner;
     
 
     private void OnEnable()
@@ -43,8 +45,10 @@ public class GameManager : MonoBehaviour
     {
         if(!livesController.RemoveLife())
         {
+            //jumperSpawner.Stop();
             Debug.Log("Game Is Over");
-            gameOverSign.SetActive(true);
+            GameOver();
+            
         }
     }
 
@@ -58,4 +62,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    private void GameOver()
+    {
+        gameOverSign.SetActive(true);
+    }
 }

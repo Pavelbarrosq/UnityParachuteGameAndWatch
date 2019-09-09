@@ -51,4 +51,22 @@ public class JumperSpawner : MonoBehaviour
         jumperController.jumperSpawner = this;
 
     }
+
+    public void Stop()
+    {
+        stopJumpers = true;
+
+        for (int i = jumpers.Count - 1; i >= 0; i--)
+        {
+            DestroyJumper(jumpers[i]);
+
+        }
+    }
+
+    public void DestroyJumper(GameObject jumper)
+    {
+        jumpers.Remove(jumper);
+
+        Destroy(jumper);
+    }
 }
