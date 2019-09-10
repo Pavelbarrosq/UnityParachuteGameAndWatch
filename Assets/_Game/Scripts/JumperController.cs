@@ -120,7 +120,7 @@ public class JumperController : MonoBehaviour
         Destroy(parent);
     }
 
-    public void ChangeJumperColor(Color color)
+    private void ChangeJumperColor(Color color)
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = color;

@@ -922,8 +922,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -603701603
-  m_SortingLayer: -1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 2.009804, y: 2.009804, z: 0}
@@ -1252,7 +1252,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0043491274, y: -0.06088747}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1263,7 +1263,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.04, y: 0.04}
+  m_Size: {x: 0.4227213, y: 0.07044384}
   m_EdgeRadius: 0
 --- !u!50 &993323235
 Rigidbody2D:
@@ -1304,7 +1304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1004807794
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1626,14 +1626,13 @@ GameObject:
   - component: {fileID: 1131690908}
   - component: {fileID: 1131690907}
   - component: {fileID: 1131690906}
-  - component: {fileID: 1131690909}
   m_Layer: 0
   m_Name: Right-Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1131690906
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1713,19 +1712,6 @@ Transform:
   m_Father: {fileID: 1569539667}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1131690909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131690905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5add08ad90830488981cfaf16e883c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  left: 0
 --- !u!1 &1182354531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,6 +1882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1569539667}
+  - component: {fileID: 1569539668}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -1919,6 +1906,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1569539668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569539666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5add08ad90830488981cfaf16e883c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  left: 0
 --- !u!1 &1625012638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,14 +1960,13 @@ GameObject:
   - component: {fileID: 1707162296}
   - component: {fileID: 1707162295}
   - component: {fileID: 1707162294}
-  - component: {fileID: 1707162297}
   m_Layer: 0
   m_Name: Left-Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &1707162294
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2047,19 +2046,6 @@ Transform:
   m_Father: {fileID: 1569539667}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1707162297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707162293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5add08ad90830488981cfaf16e883c08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  left: 1
 --- !u!1 &1779650003
 GameObject:
   m_ObjectHideFlags: 0

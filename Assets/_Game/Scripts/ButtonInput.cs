@@ -10,17 +10,67 @@ public class ButtonInput : MonoBehaviour
     public static event ButtonPressed OnRight;
 
 
-    private void OnMouseDown()
+    //private void OnMouseDown()
+    //{
+    //    if (OnLeft != null && left)
+    //    {
+    //        OnLeft();
+    //        Debug.Log("Left Pressed!");
+    //    }
+    //    else if (OnRight != null)
+    //    {
+    //        OnRight();
+    //        Debug.Log("Right Pressed!");
+    //    }
+    //}
+
+    private float leftPosition = -0.01f;
+    private float rightPosition = 0.01f;
+
+    private void Update()
     {
-        if (OnLeft != null && left)
+        foreach (Touch touch in Input.touches)
         {
-            OnLeft();
-            Debug.Log("Left Pressed!");
+            if (touch.phase == TouchPhase.Began)
+            {
+                Vector3 touchInput = touch.position;
+                Vector3 position = Camera.main.ScreenToWorldPoint(touchInput);
+
+                position.z = 0f;
+
+                if (OnLeft != null && position.x <= leftPosition)
+                {
+                    Debug.Log("Moved Left");
+                    OnLeft();
+                }
+                else if (OnRight != null && position.x >= rightPosition)
+                {
+                    Debug.Log("Moved Right");
+                    OnRight();
+                }
+            }
+            
         }
-        else if (OnRight != null)
-        {
-            OnRight();
-            Debug.Log("Right Pressed!");
-        }
+
+
+
+
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch touchInput = Input.GetTouch(0);
+        //    Vector3 position = Camera.main.ScreenToWorldPoint(touchInput.position);
+        //    position.z = 0f;
+            
+
+        //    if (position.x < -0.01)
+        //    {
+        //        Debug.Log("Moved LEFT");
+        //        OnLeft();
+        //    } else if (position.x > 0.01)
+        //    {
+        //        Debug.Log("Moved RIGHT!");
+        //        OnRight();
+        //    }
+        //}
     }
 }

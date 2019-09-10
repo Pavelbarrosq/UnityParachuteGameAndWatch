@@ -48,8 +48,15 @@ public class JumperSpawner : MonoBehaviour
 
         JumperController jumperController = jumper.GetComponentInChildren<JumperController>(); // Hjälp!
 
-        jumperController.jumperSpawner = this;
+        jumperController.jumperSpawner = this; // hjälp!
 
+    }
+
+    public void DestroyJumper(GameObject jumper)
+    {
+        jumpers.Remove(jumper);
+
+        Destroy(jumper);
     }
 
     public void Stop()
@@ -63,10 +70,5 @@ public class JumperSpawner : MonoBehaviour
         }
     }
 
-    public void DestroyJumper(GameObject jumper)
-    {
-        jumpers.Remove(jumper);
-
-        Destroy(jumper);
-    }
+    
 }
