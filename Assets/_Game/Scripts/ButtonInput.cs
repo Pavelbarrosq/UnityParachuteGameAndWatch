@@ -12,11 +12,12 @@ public class ButtonInput : MonoBehaviour
     public static event ButtonPressed OnRight;
 
 
+
 #if (UNITY_EDITOR)
 
+    
     private void Update()
     {
-        
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -62,8 +63,8 @@ public class ButtonInput : MonoBehaviour
 
     private void Start()
     {
-        GameObject left = GameObject.Find("Left-Input");
-        GameObject right = GameObject.Find("Right-Input");
+        GameObject left = GameObject.Find("Left-Button");
+        GameObject right = GameObject.Find("Right-Button");
         left.SetActive(false);
         right.SetActive(false);
 

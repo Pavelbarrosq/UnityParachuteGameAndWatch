@@ -2152,7 +2152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumperPrefab: {fileID: 8428324870706846360, guid: 13729658a36f44f1ea70bc4be0ce492c,
     type: 3}
-  spawnDelay: 4.92
+  spawnDelay: 5
   deltaRandomSpawn: 0.5
   decreaseSpawnDelay: 0.03
   randomSpawnDelay: 0
