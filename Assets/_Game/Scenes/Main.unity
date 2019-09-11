@@ -2154,6 +2154,7 @@ MonoBehaviour:
     type: 3}
   spawnDelay: 4.92
   deltaRandomSpawn: 0.5
+  decreaseSpawnDelay: 0.03
   randomSpawnDelay: 0
 --- !u!114 &1779650005
 MonoBehaviour:

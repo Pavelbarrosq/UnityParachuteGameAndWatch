@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
         livesController.StartingLives(startingLives);
     }
 
+    public int Points()
+    {
+        return point;
+    }
+
     private void JumperSaved()
     {
         point++;
