@@ -25,7 +25,7 @@ public class JumperController : MonoBehaviour
     float lastMoveTime;
     float moveDelay = 1.0f;
     int rand;
-    float deathDelay = 0.5f;
+    float deathDelay = 0.05f;
     bool isDead = false;
     bool saved = false;
 
@@ -48,8 +48,12 @@ public class JumperController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Collider2D collider = GetComponent<BoxCollider2D>();
+        collider.enabled = false;
+        Debug.Log("On trigger");
         if (collision.gameObject.name.Equals("Rescuer"))
         {
+       
             StartCoroutine(Crashed());
             Debug.Log("Rescued");
             OnSave();

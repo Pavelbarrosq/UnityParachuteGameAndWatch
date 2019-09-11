@@ -7,6 +7,8 @@ public class RescuerController : MonoBehaviour
     public List<Transform> movementPoints = new List<Transform>();
     private int currentPosition = 1;
 
+
+    //Prenumeration on buttoninput
     private void OnEnable()
     {
         ButtonInput.OnLeft += OnLeftPressed;
